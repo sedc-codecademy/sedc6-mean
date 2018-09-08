@@ -9,3 +9,12 @@ JSON.stringify(
             bookCount: row[2].innerHTML,
         }))
     , null, 2)
+
+JSON.stringify(
+    $("div.awardslisting").toArray().map(x => {
+        return {
+            id: Number($(x).find(".gallery a").attr("href").substr(13)),
+            name: $(x).find(".title").text()
+        }
+    })
+    , null, 2)

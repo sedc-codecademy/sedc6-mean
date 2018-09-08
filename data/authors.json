@@ -2987,7 +2987,121 @@
     {
         "id": 39,
         "name": "Lois McMaster Bujold",
-        "bookCount": "38"
+        "bookCount": "38",
+        "books": [
+            {
+                "id": 13853,
+                "name": "Dreamweaver's Dilemma"
+            },
+            {
+                "id": 15613,
+                "name": "Women at War"
+            },
+            {
+                "id": 737,
+                "name": "The Spirit Ring"
+            },
+            {
+                "id": 6351,
+                "name": "Cordelia's Honor"
+            },
+            {
+                "id": 1639,
+                "name": "Shards of Honor"
+            },
+            {
+                "id": 39,
+                "name": "Barrayar"
+            },
+            {
+                "id": 113,
+                "name": "Falling Free"
+            },
+            {
+                "id": 2174,
+                "name": "Beguilement"
+            },
+            {
+                "id": 2175,
+                "name": "Legacy"
+            },
+            {
+                "id": 2176,
+                "name": "Passage"
+            },
+            {
+                "id": 2177,
+                "name": "Horizon"
+            },
+            {
+                "id": 1640,
+                "name": "The Warrior's Apprentice"
+            },
+            {
+                "id": 38,
+                "name": "The Vor Game"
+            },
+            {
+                "id": 1641,
+                "name": "Ethan of Athos"
+            },
+            {
+                "id": 1642,
+                "name": "Brothers in Arms"
+            },
+            {
+                "id": 6356,
+                "name": "Borders of Infinity"
+            },
+            {
+                "id": 42,
+                "name": "Mirror Dance"
+            },
+            {
+                "id": 716,
+                "name": "Cetaganda"
+            },
+            {
+                "id": 82,
+                "name": "Memory"
+            },
+            {
+                "id": 1643,
+                "name": "Komarr"
+            },
+            {
+                "id": 70,
+                "name": "A Civil Campaign"
+            },
+            {
+                "id": 124,
+                "name": "Diplomatic Immunity"
+            },
+            {
+                "id": 2173,
+                "name": "Cryoburn"
+            },
+            {
+                "id": 5250,
+                "name": "Captain Vorpatril's Alliance"
+            },
+            {
+                "id": 15612,
+                "name": "Gentleman Jole and the Red Queen"
+            },
+            {
+                "id": 64,
+                "name": "The Curse of Chalion"
+            },
+            {
+                "id": 51,
+                "name": "Paladin of Souls"
+            },
+            {
+                "id": 849,
+                "name": "The Hallowed Hunt"
+            }
+        ]
     },
     {
         "id": 1444,

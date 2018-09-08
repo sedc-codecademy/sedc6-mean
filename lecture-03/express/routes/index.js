@@ -7,8 +7,12 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET authors list. */
-router.get('/authors', function(req, res, next) {
-  res.render('authors', {});
+router.get('/authors-client', function(req, res, next) {
+  res.render('authors-cl', {});
+});
+
+router.get('/authors-rest', function(req, res, next) {
+  res.render('authors-rest', {});
 });
 
 module.exports = router;
