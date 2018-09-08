@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Author list</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="javascripts/client.js"></script>
-  </head>
-  <body>
-    <input type="number" name="first" id="first" /> + 
-    <input type="number" name="second" id="second" />
-    <button id="add">=</button>
-    <span id="result"></span>
 
-    <hr> 
-    <button id="load">Load Authors</button>
-    <table id="authors">
-      <tr>
-        <th> Name </th>
-        <th> Books </th>
-      </tr>
-    </table>
-  </body>
+<head>
+  <title>Author list</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="javascripts/authors.js"></script>
+</head>
+
+<body>
+  <button id="load">Load Authors</button><br />
+  <button id="prev">&lt;</button>
+  <button id="next">&gt;</button>
+  <table id="authors">
+    <tr>
+      <th> ID </th>
+      <th> Name </th>
+      <th> Books </th>
+    </tr>
+  </table>
+</body>
+
 </html>

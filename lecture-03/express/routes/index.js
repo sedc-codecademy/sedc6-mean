@@ -6,4 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'SWekster' });
 });
 
+/* GET authors list. */
+router.get('/authors', function(req, res, next) {
+  res.render('authors', {});
+});
+
 module.exports = router;
