@@ -3,6 +3,7 @@ import * as express from "express";
 import * as path from "path";
 import * as cookieParser from "cookie-parser";
 import * as logger from "morgan";
+import * as bodyParser from 'body-parser';
 
 import { defaultRouter } from "./routes/index";
 import { usersRouter } from "./routes/users";
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
 
 app.use('/', defaultRouter);
 app.use('/users', usersRouter);

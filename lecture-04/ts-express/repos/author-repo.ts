@@ -40,12 +40,14 @@ const repoGenerator = async () => {
                 const result = data.find(author => author.id === id);
                 return result;
             },
-            findAuthorsByName: (nameFragment, { first, last }) => {
+            findAuthorsByName: (nameFragment = "", { first, last } = {}) => {
                 console.log(`getting authors by name ${nameFragment}`);
-                const result = data.filter(author => author.name.includes(nameFragment));
+                nameFragment = nameFragment.toLowerCase();
+                const result = data.filter(author => author.name.toLowerCase().includes(nameFragment));
 
                 first = first || 0;
                 last = last || result.length - 1;
+                last = Math.min(last, result.length);
                 const items = result.slice(first, last);
                 return {
                     items,
@@ -56,7 +58,10 @@ const repoGenerator = async () => {
             },
             addAuthor: null,
             deleteAuthor: null,
-            updateAuthor: null,
+            updateAuthor: (author) => {
+                // homework - update data file on disk :)
+                return author;
+            },
         }
         return repo;
     }

@@ -57,3 +57,30 @@ authorsApi.get('/:from/:to', async function (req, res, next) {
 
     res.send(authors);
 });
+
+authorsApi.patch('/:id', async function(req, res, next) {
+    const repo = (await getRepository)();
+
+    const id = Number(req.params.id);
+    const operation = req.body.bookCount;
+
+    const author = repo.getAuthorById(id);
+
+    if (!author) {
+        res.sendStatus(404);
+        return;
+    }
+
+    if (operation === "add") {
+        author.bookCount +=1;
+    } else if (operation === "remove") {
+        author.bookCount -=1;
+    }
+
+    repo.updateAuthor(author);
+
+    res.send({
+        author: author,
+        success: true
+    });
+});

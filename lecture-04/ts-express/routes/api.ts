@@ -1,11 +1,16 @@
 const express = require('express');
-export const apiRouter = express.Router();
+import * as bodyParser from 'body-parser';
+
 
 import { cache } from "../cache/cache";
 import { readJson } from "../fs-helper";
 import { authorsApi } from "./api/authors";
 import { booksApi } from "./api/books";
 import { awardsApi } from "./api/awards";
+
+export const apiRouter = express.Router();
+
+//apiRouter.use(bodyParser.json());
 
 apiRouter.get('/', function (req, res, next) {
     res.send(["add", "subtract", "multiply"]);

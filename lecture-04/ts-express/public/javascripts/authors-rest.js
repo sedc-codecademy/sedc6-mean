@@ -55,8 +55,10 @@ const renderAuthors = (authors) => {
         <th> Books </th>
     </tr>`);
 
-    for (let index = 0; index < authors.length; index++) {
-        const author = authors[index];
+    $("#info").text(`Showing items ${authors.first} to ${authors.last} of ${authors.total}`)
+
+    for (let index = 0; index < authors.items.length; index++) {
+        const author = authors.items[index];
         $('#authors tr:last').after(`<tr>
             <td>${author.id}</td>
             <td>${author.name}</td>
