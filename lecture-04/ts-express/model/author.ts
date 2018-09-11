@@ -2,7 +2,10 @@ export interface Author {
     id: number,
     name: string,
     bookCount: number,
-    books? : Book[]
+    books?: Book[]
 }
 
-export interface Book {}
+export type Authors = Author[];
+
+export interface Book { }
+

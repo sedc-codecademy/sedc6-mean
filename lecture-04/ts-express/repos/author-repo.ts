@@ -1,5 +1,66 @@
-import { Author } from "../model/author";
+import { Author, Authors } from "../model/author";
+import { FragmentOptions, Fragment } from "../model/fragment";
+import { readJson } from "../fs-helper";
+import { cache } from "../cache/cache";
 
-export class AuthorRepository {
+export interface AuthorRepository {
+    // retrieval methods
+    getAllAuthors: (fragmentParams?: FragmentOptions) => Fragment<Author>;
+    getAuthorById: (id: number) => Author;
+    findAuthorsByName: (nameFragment: string, fragmentParams?: FragmentOptions) => Fragment<Author>;
 
+    // data manipulation methods
+    addAuthor: (author: Author) => Author;
+    deleteAuthor: (id: number) => boolean;
+    updateAuthor: (author: Author) => Author;
 }
+
+const repoGenerator = async () => {
+
+    console.log("Loading data file");
+    const data: Authors = <Authors>await readJson("../../data/authors.json");
+
+    return () => {
+
+        const repo: AuthorRepository = {
+            getAllAuthors: ({ first, last }={}) => {
+                first = first || 0;
+                last = last || data.length - 1;
+                console.log("getting all authors");
+                const items = data.slice(first, last);
+                return {
+                    items,
+                    total: data.length,
+                    first,
+                    last
+                }
+            },
+            getAuthorById: (id) => {
+                console.log("get author by id");
+                const result = data.find(author => author.id === id);
+                return result;
+            },
+            findAuthorsByName: (nameFragment, { first, last }) => {
+                console.log(`getting authors by name ${nameFragment}`);
+                const result = data.filter(author => author.name.includes(nameFragment));
+
+                first = first || 0;
+                last = last || result.length - 1;
+                const items = result.slice(first, last);
+                return {
+                    items,
+                    total: result.length,
+                    first,
+                    last
+                }
+            },
+            addAuthor: null,
+            deleteAuthor: null,
+            updateAuthor: null,
+        }
+        return repo;
+    }
+}
+
+export const getRepository = repoGenerator();
+
