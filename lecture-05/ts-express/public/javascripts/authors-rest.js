@@ -35,7 +35,7 @@ const showAuthors = async ({ page, pageSize, command, filter }) => {
     options = { page, pageSize, filter };
 
     const first = page * pageSize;
-    const last = pageSize;
+    const last = (page + 1) * pageSize;
 
     let urlBuilder = `/api/authors/${first}/${last}`;
     if (filter) {
@@ -62,7 +62,33 @@ const renderAuthors = (authors) => {
         $('#authors tr:last').after(`<tr>
             <td>${author.id}</td>
             <td>${author.name}</td>
-            <td>${author.bookCount}</td>
+            <td class="js-author-${author.id}">${author.bookCount}</td>
+            <td><button data-author-id="${author.id}" class="js-add-book">Add Book</button></td>
+            <td><button data-author-id="${author.id}" class="js-remove-book">Remove Book</button></td>
         </tr>`);
+        $("#authors tr:last .js-add-book").on("click", async (event) => {
+            const id = $(event.currentTarget).data("author-id")
+            await changeBookCount(id, "add");
+        });
+        $("#authors tr:last .js-remove-book").on("click", async (event) => {
+            const id = $(event.currentTarget).data("author-id")
+            await changeBookCount(id, "remove");
+        });
     }
+}
+
+async function changeBookCount(id, operation) {
+    const url = `/api/authors/${id}`;
+    const response = await fetch(url, {
+        method: "PATCH",
+        body: JSON.stringify({
+            bookCount: operation
+        }),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+    const authorData = await response.json();
+    $(`.js-author-${id}`).text(authorData.author.bookCount);
 }

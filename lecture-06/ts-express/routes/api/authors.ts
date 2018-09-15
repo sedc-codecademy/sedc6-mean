@@ -20,6 +20,7 @@ authorsApi.post('/', async (req, res, next) => {
 })
 
 authorsApi.get('/:from/:to', async function (req, res, next) {
+
     const first = Number(req.params.from);
     if (isNaN(first)) {
         res.status(400).send({
@@ -36,19 +37,20 @@ authorsApi.get('/:from/:to', async function (req, res, next) {
         });
     }
 
-    // if (first > last) {
-    //     res.status(422).send({
-    //         message: "the from parameter cannot be more than the to parameter",
-    //         value: {
-    //             from: req.params.from,
-    //             to: req.params.to
-    //         }
-    //     });
-    // }
+    if (first > last) {
+        res.status(422).send({
+            message: "the from parameter cannot be more than the to parameter",
+            value: {
+                from: req.params.from,
+                to: req.params.to
+            }
+        });
+    }
 
     const term = req.query.search;
 
     const repo = (await getRepository)();
+
     const authors = await repo.findAuthorsByName(term, { first, last });
 
     if (authors.total === 0) {
@@ -64,7 +66,7 @@ authorsApi.patch('/:id', async function(req, res, next) {
     const id = Number(req.params.id);
     const operation = req.body.bookCount;
 
-    const author = repo.getAuthorById(id);
+    let author = await repo.getAuthorById(id);
 
     if (!author) {
         res.sendStatus(404);
@@ -77,7 +79,7 @@ authorsApi.patch('/:id', async function(req, res, next) {
         author.bookCount -=1;
     }
 
-    repo.updateAuthor(author);
+    author = await repo.updateAuthor(author);
 
     res.send({
         author: author,

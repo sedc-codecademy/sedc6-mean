@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "tsc && node ./dist/bin/www"
+    "start": "tsc && node ./dist/bin/www",
+    "copy": "npm run copy-views && npm run copy-public",
+    "copy-views": "robocopy views dist/views",
+    "copy-public":"robocopy public dist/public"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -15,6 +18,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.16.0",
+    "@types/mongodb": "^3.1.7",
     "mongodb": "^3.1.4"
   }
 }
