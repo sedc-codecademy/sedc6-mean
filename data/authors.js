@@ -18,3 +18,9 @@ JSON.stringify(
         }
     })
     , null, 2)
+
+
+$(".awardslisting p.title").toArray().map(div => ({
+    id: Number($(div).find("a").attr("href").substr(13)),
+    title: $(div).text(),
+}))

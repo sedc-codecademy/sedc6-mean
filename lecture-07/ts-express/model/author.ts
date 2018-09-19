@@ -1,11 +1,13 @@
+import { Book } from "./book";
+
 export interface Author {
     wweId: number,
     name: string,
-    bookCount: number,
+    bookCount?: number,
     books?: Book[]
 }
 
 export type Authors = Author[];
 
-export interface Book { }
+
 
