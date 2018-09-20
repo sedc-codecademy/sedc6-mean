@@ -30,19 +30,23 @@ authorsApi.get('/:id/books/load', async function(req, res, next){
 
     const page = await request(`https://www.worldswithoutend.com/author.asp?ID=${id}`);
     const $ = cheerio.load(page.body);
-    const books = $(".awardslisting p.title").toArray().map(div => ({
+    const years = $("table:has(.awardslisting):not(:has(table))")
+        .each(table => $(table).find("td").first())
+        .toArray()
+        .map(td => Number($(td).text().match(/\((\d*)\)/)[1]));
+
+    const books = $(".awardslisting p.title").toArray().map((div, index) => ({
         id: Number($(div).find("a").attr("href").substr(13)),
         title: $(div).text(),
-        author: {
-            id: author.wweId,
-            name: author.name
-        }
+        year: years[index]
     }));
 
     author.books = books;
     author.bookCount = books.length;
 
     await repo.updateAuthor(author);
+
+    // to-do: add books to book
     
     res.send(books);
 });
