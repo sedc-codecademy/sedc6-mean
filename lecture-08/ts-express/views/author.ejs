@@ -10,8 +10,14 @@
 
 <body>
 
-  <h1>Author's Name Here</h1>
-  <div>Number of books</div>
+  <input type="hidden" id="id" value="<%= id %>">
+
+  <!-- <script>
+    const id = <%= id %>;
+  </script> -->
+
+  <h1 id="name">Author's Name Here</h1>
+  <div id="bookCount">Number of books</div> books
 
   <button id="load">Load Books</button>
 

@@ -12,6 +12,19 @@ authorsApi.get('/', async function (req, res, next) {
     res.send(authors);
 });
 
+authorsApi.get('/id/:id', async function (req, res, next) {
+    const id = Number(req.params.id);
+    const repo = (await getRepository)();
+    const author = await repo.getAuthorById(id);
+
+    if (!author) {
+        res.sendStatus(404);
+        return;
+    }
+
+    res.send(author);
+});
+
 authorsApi.post('/', async (req, res, next) => {
     const repo = (await getRepository)();
     repo.updateAuthor({
