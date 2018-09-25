@@ -7,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  showWeko: boolean = false;
+
   title: string;
   name: string = "Wekoslav";
   name2 = "Ige";
   buttonTitle: string = "Set to Weko";
+
+  delany = {
+    author: "Samuel R. Delany",
+    title: "Empire Star"
+  };
+
+  books = [{
+    author: "Robert A. Heinlein",
+    title: "The Moon is a Harsh Mistress"
+  }, this.delany];
 
   weko = {
     firstName: "Wekoslav",
@@ -19,6 +31,11 @@ export class AppComponent implements OnInit {
   };
 
   seed = Math.random();
+
+  wekoClass = {
+    first: false,
+    second: true
+  };
 
   constructor() {
     console.log("inside constructor");
@@ -34,6 +51,7 @@ export class AppComponent implements OnInit {
   }
 
   getGreeting(lang: string) {
+    console.log(`getting greeting for language ${lang}`);
     if (lang === "mk") {
       return `Здраво ${this.getName()}`;
     } else if (lang === "en") {
@@ -58,5 +76,29 @@ export class AppComponent implements OnInit {
   setName({ target: { value } }) {
     this.name = value;
   }
+
+  toggleShow() {
+    this.showWeko = !this.showWeko;
+  }
+
+  addBook() {
+    this.books.push({ author: "Ursula LeGuin", title: `The Lathe of Heaven ${this.books.length}` });
+  }
+
+  removeBook(index: number) {
+    this.books = [...this.books.slice(0, index), ...this.books.slice(index + 1)];
+  }
+
+  editBook() {
+    this.delany.title = "Dhalgren";
+  }
+
+  toggleStyle() {
+    this.wekoClass = {
+      first: !this.wekoClass.first,
+      second: !this.wekoClass.second,
+    };
+  }
+
 
 }
