@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Question } from '../models/question';
+import { QuestionService } from "../services/question-service";
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,10 @@ import { Question } from '../models/question';
 export class AppComponent {
   title = 'component-demo';
 
-  appQuestion: Question = {
-    topic: "Geography",
-    content: "Where are Panama hats made?",
-    answers: [
-      {content: "Honduras", isCorrect: false},
-      {content: "Panama", isCorrect: false},
-      {content: "Ecuador", isCorrect: true},
-    ]
-  };
+  questions: Question[];
+
+  constructor(service: QuestionService) {
+    this.questions = service.getQuestions();
+  }
 
 }

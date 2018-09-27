@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { QuizModule } from '../quiz/quiz.module';
+import { QuestionService } from '../services/question-service';
 
 @NgModule({
   declarations: [
@@ -10,9 +11,11 @@ import { QuizModule } from '../quiz/quiz.module';
   ],
   imports: [
     BrowserModule,
-    QuizModule
+    QuizModule,
   ],
-  providers: [],
+  providers: [
+    QuestionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

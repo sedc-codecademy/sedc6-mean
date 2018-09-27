@@ -1,10 +1,18 @@
-<div *ngIf="question" style="border: solid 1px red;">
+<div *ngIf="question" class="question">
     <div style="text-align: center">
         <h1>{{question.topic}}</h1>
         <p>{{question.content}}</p>
     </div>
 
-    <div *ngFor="let answer of question.answers">
-        <button>{{answer.content}}</button>
+    <div *ngIf="wiseAnswer">CORRECT</div>
+    <div *ngIf="poorAnswer">WRONG, WRONG, WRONG</div>
+
+    <div class="result-container">
+        <answer *ngFor="let answer of question.answers" 
+            [answer]="answer"
+            [enabled]="enableAnswers"
+            (answerSelected)="handleAnswer($event)"
+        >
+        </answer>
     </div>
 </div>

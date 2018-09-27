@@ -1,0 +1,9 @@
+<button [disabled]="isLastQuestion()" (click)="moveToNextQuestion()">Skip question</button>
+
+
+<question 
+    [question]="currentQuestion"
+    (answerSelected)="calculateScore($event)"
+></question>
+
+<show-score [totalQuestions]="questions.length" [correct]="score"></show-score>

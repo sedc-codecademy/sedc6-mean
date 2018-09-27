@@ -1,16 +1,24 @@
 import { NgModule } from "@angular/core";
-import { QuestionComponent } from "./question/question";
 import { CommonModule } from "@angular/common";
+
+import { AnswerComponent } from "./answer/answer";
+import { QuestionComponent } from "./question/question";
+import { ShowScoreComponent } from "./show-score";
+import { QuizComponent } from "./quiz";
 
 @NgModule({
     declarations: [
-        QuestionComponent
+        QuestionComponent,
+        ShowScoreComponent,
+        QuizComponent,
+        AnswerComponent
     ],
     imports: [
         CommonModule
     ],
     exports: [
-        QuestionComponent
+        QuestionComponent,
+        QuizComponent
     ]
 })
 export class QuizModule {
