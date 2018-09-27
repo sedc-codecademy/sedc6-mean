@@ -1,0 +1,10 @@
+<div *ngIf="question" style="border: solid 1px red;">
+    <div style="text-align: center">
+        <h1>{{question.topic}}</h1>
+        <p>{{question.content}}</p>
+    </div>
+
+    <div *ngFor="let answer of question.answers">
+        <button>{{answer.content}}</button>
+    </div>
+</div>
