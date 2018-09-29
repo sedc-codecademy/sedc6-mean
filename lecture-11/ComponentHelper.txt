@@ -1,0 +1,16 @@
+Components with modules
+
+1. Create component 
+	a) Create component class file
+	b) Create component template file
+2. Include component in module
+	a) If module does not exist create module
+	b) Include component in module declaration
+	c) Include component in module exports
+3. Include component module in user module
+4. Use component selector in user component's template
+
+Injecting Services
+
+1. Mark as Injectable
+2. Set the service as a provider in the user's module
