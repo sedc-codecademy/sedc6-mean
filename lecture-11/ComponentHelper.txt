@@ -2,6 +2,8 @@ Components with modules
 
 1. Create component 
 	a) Create component class file
+		i) The component decorator should have the "selector" field
+		ii) The component decorator should have the "templateUrl" field
 	b) Create component template file
 2. Include component in module
 	a) If module does not exist create module
