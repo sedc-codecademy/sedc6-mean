@@ -1,1 +1,12 @@
-Here there be authors
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th># Books</th>
+    </tr>
+    <tr *ngFor="let author of authors">
+        <td>{{author.id}}</td>
+        <td>{{author.name}}</td>
+        <td>{{author.bookCount}}</td>
+    </tr>
+</table>
