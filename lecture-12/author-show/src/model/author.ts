@@ -1,5 +1,5 @@
 export interface Author {
-    id: number;
+    wweId: number;
     name: string;
     bookCount: number;
 }

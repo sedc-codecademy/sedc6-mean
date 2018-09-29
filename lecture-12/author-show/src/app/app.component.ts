@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Author } from '../model';
 import { AuthorService } from '../services/author-service';
 
@@ -7,12 +7,15 @@ import { AuthorService } from '../services/author-service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Author Display';
 
   authors: Author[];
 
   constructor(private service: AuthorService) {
-    this.authors = this.service.getAuthors();
+  }
+
+  async ngOnInit() {
+    this.authors = await this.service.getAuthors();
   }
 }
