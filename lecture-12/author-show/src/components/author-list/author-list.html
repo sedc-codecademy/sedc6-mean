@@ -1,12 +1,10 @@
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th># Books</th>
-    </tr>
-    <tr *ngFor="let author of authors">
-        <td>{{author.id}}</td>
-        <td>{{author.name}}</td>
-        <td>{{author.bookCount}}</td>
-    </tr>
-</table>
+<div class="header">
+    <span class="id">ID</span>
+    <span class="name">Name</span>
+    <span class="count"># Books</span>
+</div>
+<div class="item" *ngFor="let author of authors">
+    <span class="id">{{author.id}}</span>
+    <span class="name">{{author.name}}</span>
+    <span class="count">{{author.bookCount}}</span>
+</div>

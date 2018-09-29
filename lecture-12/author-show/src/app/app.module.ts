@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AuthorsModule } from '../components/authors.module';
 
+import { AuthorService } from '../services/author-service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +14,9 @@ import { AuthorsModule } from '../components/authors.module';
     BrowserModule,
     AuthorsModule
   ],
-  providers: [],
+  providers: [
+    AuthorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

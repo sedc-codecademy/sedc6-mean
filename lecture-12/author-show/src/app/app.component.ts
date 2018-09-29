@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Author } from '../model';
+import { AuthorService } from '../services/author-service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Author Display';
+
+  authors: Author[];
+
+  constructor(private service: AuthorService) {
+    this.authors = this.service.getAuthors();
+  }
 }
