@@ -2,10 +2,10 @@
     <authors-command (nextPage)="changePage(1)" (previousPage)="changePage(-1)" (doSearch)="search($event)"></authors-command>
     <authors-status [first]="authors.first" [last]="authors.last" [total]="authors.total"></authors-status>
 
-    <div *ngIf="!!selectedAuthor">
+    <!-- <div *ngIf="!!selectedAuthor">
         <author-details [authorId]="selectedAuthor.wweId"></author-details>
         <div (click)="clearSelected()">Back</div>
-    </div>
+    </div> -->
     <author-list *ngIf="!selectedAuthor" [authors]="authors.items" (selectAuthor)="authorSelected($event)" ></author-list>
 </div>
 

@@ -1,17 +1,21 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Author } from "../../model";
 import { AuthorService } from "../../services/author-service";
+import { ActivatedRoute, ActivatedRouteSnapshot } from "@angular/router";
 
 @Component({
     selector: "author-details",
     templateUrl: "./author-details.html"
 })
 export class AuthorDetailsComponent implements OnInit {
-    @Input() authorId: number;
+    // @Input() 
+    authorId: number;
 
     author: Author;
 
-    constructor(private service: AuthorService) {
+    constructor(private service: AuthorService, private route: ActivatedRoute) {
+        console.log(route.snapshot);
+        this.authorId = route.snapshot.params.id;
     }
 
     async ngOnInit() {

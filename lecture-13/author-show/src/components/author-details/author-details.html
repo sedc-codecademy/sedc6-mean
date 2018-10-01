@@ -7,4 +7,6 @@
     <ng-container *ngIf="!!author.books">
         <book-list [books]="author.books"></book-list>
     </ng-container>
+
+    <a [routerLink]="['/']">Back to author list</a> 
 </div>

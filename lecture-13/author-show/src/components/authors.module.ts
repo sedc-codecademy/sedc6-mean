@@ -8,6 +8,7 @@ import { AuthorsCommandComponent } from "./authors-command/authors-command";
 import { AuthorsStatusComponent } from "./authors-status/authors-status";
 import { AuthorDetailsComponent } from "./author-details/author-details";
 import { BookListComponent } from "./book-list/book-list";
+import { RouterModule, ActivatedRouteSnapshot } from "@angular/router";
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { BookListComponent } from "./book-list/book-list";
         AuthorService
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        RouterModule
     ]
 })
 export class AuthorsModule {
