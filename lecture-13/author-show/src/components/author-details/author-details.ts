@@ -18,4 +18,15 @@ export class AuthorDetailsComponent implements OnInit {
         this.author = await this.service.getAuthorById(this.authorId);
     }
 
+    async loadBooks() {
+        const books = await this.service.loadBooksForAuthor(this.authorId);
+        this.author.books = books;
+        this.author.bookCount = books.length;
+    }
+
+    getBookTerm(author: Author) {
+        const isOne = author.bookCount === 1;
+        return isOne ? "book" : "books";
+    }
+
 }

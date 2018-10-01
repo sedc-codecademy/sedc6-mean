@@ -7,6 +7,7 @@ import { AuthorService } from "../services/author-service";
 import { AuthorsCommandComponent } from "./authors-command/authors-command";
 import { AuthorsStatusComponent } from "./authors-status/authors-status";
 import { AuthorDetailsComponent } from "./author-details/author-details";
+import { BookListComponent } from "./book-list/book-list";
 
 @NgModule({
     declarations: [
@@ -14,12 +15,14 @@ import { AuthorDetailsComponent } from "./author-details/author-details";
         AuthorsContainerComponent,
         AuthorsCommandComponent,
         AuthorsStatusComponent,
-        AuthorDetailsComponent
+        AuthorDetailsComponent,
+        BookListComponent
     ],
     exports: [
         AuthorListComponent,
         AuthorsContainerComponent,
-        AuthorDetailsComponent
+        AuthorDetailsComponent,
+        BookListComponent
     ],
     providers: [
         AuthorService
