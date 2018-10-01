@@ -9,13 +9,4 @@ import { AuthorService } from '../services/author-service';
 })
 export class AppComponent implements OnInit {
   title = 'Author Display';
-
-  authors: Author[];
-
-  constructor(private service: AuthorService) {
-  }
-
-  async ngOnInit() {
-    this.authors = await this.service.getAuthors();
-  }
 }

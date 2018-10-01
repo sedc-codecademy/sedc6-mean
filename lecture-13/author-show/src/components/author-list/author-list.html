@@ -1,0 +1,10 @@
+<div class="header">
+    <span class="id">ID</span>
+    <span class="name">Name</span>
+    <span class="count"># Books</span>
+</div>
+<div class="item" *ngFor="let author of authors; index as index">
+    <span class="id">{{author.wweId}}</span>
+    <span class="name" (click)="doSelectAuthor(author)">{{author.name}}</span>
+    <span class="count">{{author.bookCount}}</span>
+</div>
