@@ -3,7 +3,7 @@
     <authors-status [first]="authors.first" [last]="authors.last" [total]="authors.total"></authors-status>
 
     <div *ngIf="!!selectedAuthor">
-        <author-details [author]="selectedAuthor"></author-details>
+        <author-details [authorId]="selectedAuthor.wweId"></author-details>
         <div (click)="clearSelected()">Back</div>
     </div>
     <author-list *ngIf="!selectedAuthor" [authors]="authors.items" (selectAuthor)="authorSelected($event)" ></author-list>

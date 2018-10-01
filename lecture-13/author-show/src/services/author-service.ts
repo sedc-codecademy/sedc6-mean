@@ -20,4 +20,10 @@ export class AuthorService {
 
         return await this.http.get<AuthorResponse>(url).toPromise();
     }
+
+    async getAuthorById(id: number): Promise<Author> {
+        let url = `${this.serverUrl}/authors/id/${id}`;
+
+        return await this.http.get<Author>(url).toPromise();
+    }
 }
