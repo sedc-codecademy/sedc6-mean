@@ -5,6 +5,6 @@
 </div>
 <div class="item" *ngFor="let author of authors; index as index">
     <span class="id">{{author.wweId}}</span>
-    <span class="name"><a [routerLink]="['author', author.wweId]">{{author.name}}</a></span>
+    <span class="name"><a [routerLink]="['/','author', author.wweId]">{{author.name}}</a></span>
     <span class="count">{{author.bookCount}}</span>
 </div>

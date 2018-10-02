@@ -27,7 +27,13 @@ export class AuthorsContainerComponent implements OnInit, OnDestroy {
         this.paramsSubscriber = route.params.subscribe(params => {
             console.log("changed route params");
             this.first = Number(params.from);
+            if (isNaN(this.first)) {
+                this.first = 0;
+            }
             this.last = Number(params.to);
+            if (isNaN(this.last)) {
+                this.last = 20;
+            }
             this.pageSize = this.last - this.first;
             this.loadAuthors();
         });
@@ -50,7 +56,7 @@ export class AuthorsContainerComponent implements OnInit, OnDestroy {
         this.last += direction * this.pageSize;
 
         console.log(`changing page to ${this.first}/${this.last}`);
-        this.router.navigate(["author", "list", this.first, this.last]);
+        this.navigateToPage();
     }
 
     async loadAuthors() {
@@ -62,7 +68,15 @@ export class AuthorsContainerComponent implements OnInit, OnDestroy {
         this.first = 0;
         this.last = this.pageSize;
         this.searchTerm = searchTerm;
-        this.loadAuthors();
+        this.navigateToPage();
+    }
+
+    navigateToPage() {
+        this.router.navigate(["author", "list", this.first, this.last], {
+            queryParams: {
+                search: this.searchTerm
+            }
+        });
     }
 
     authorSelected(author: Author) {
