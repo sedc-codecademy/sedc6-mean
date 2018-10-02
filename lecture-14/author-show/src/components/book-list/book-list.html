@@ -1,0 +1,10 @@
+<div class="header">
+    <span class="id">ID</span>
+    <span class="name">Title</span>
+    <span class="count">Year</span>
+</div>
+<div class="item" *ngFor="let book of books">
+    <span class="id">{{book.id}}</span>
+    <span class="name">{{book.title}}</span>
+    <span class="count">{{book.year}}</span>
+</div>
