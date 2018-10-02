@@ -9,6 +9,7 @@ import { AuthorsStatusComponent } from "./authors-status/authors-status";
 import { AuthorDetailsComponent } from "./author-details/author-details";
 import { BookListComponent } from "./book-list/book-list";
 import { RouterModule, ActivatedRouteSnapshot } from "@angular/router";
+import { NumberToWordsPipe } from "../pipes/numberToWords";
 
 @NgModule({
     declarations: [
@@ -17,13 +18,15 @@ import { RouterModule, ActivatedRouteSnapshot } from "@angular/router";
         AuthorsCommandComponent,
         AuthorsStatusComponent,
         AuthorDetailsComponent,
-        BookListComponent
+        BookListComponent,
+        NumberToWordsPipe
     ],
     exports: [
         AuthorListComponent,
         AuthorsContainerComponent,
         AuthorDetailsComponent,
-        BookListComponent
+        BookListComponent,
+        NumberToWordsPipe
     ],
     providers: [
         AuthorService

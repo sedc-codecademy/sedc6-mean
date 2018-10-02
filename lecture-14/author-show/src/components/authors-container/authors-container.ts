@@ -10,6 +10,7 @@ import { Subscription } from "rxjs";
     templateUrl: "./authors-container.html"
 })
 export class AuthorsContainerComponent implements OnInit, OnDestroy {
+
     authors: AuthorResponse;
 
     first: number = 0;
@@ -20,6 +21,7 @@ export class AuthorsContainerComponent implements OnInit, OnDestroy {
     selectedAuthor: Author;
 
     paramsSubscriber: Subscription;
+    statusVisible: boolean = true;
 
     constructor(private service: AuthorService, private route: ActivatedRoute, private router: Router) {
         console.log("being constructed");
@@ -40,7 +42,7 @@ export class AuthorsContainerComponent implements OnInit, OnDestroy {
 
 
         route.queryParams.subscribe(qparams => {
-            console.log("changed route query params");
+            console.log("[Container] changed route query params");
             this.searchTerm = qparams.search;
             this.loadAuthors();
         });
@@ -90,5 +92,9 @@ export class AuthorsContainerComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.paramsSubscriber.unsubscribe();
 
+    }
+
+    hideStatus() {
+        this.statusVisible = false;
     }
 }

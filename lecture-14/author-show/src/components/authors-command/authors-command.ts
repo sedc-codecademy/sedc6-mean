@@ -1,12 +1,20 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter, OnDestroy } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: "authors-command",
     templateUrl: "./authors-command.html"
 })
-export class AuthorsCommandComponent {
+export class AuthorsCommandComponent implements OnDestroy {
 
     filterTerm: string;
+
+    constructor(private route: ActivatedRoute) {
+        this.route.queryParams.subscribe(qparams => {
+            console.log("[Command] detected route change");
+            this.filterTerm = qparams.search || "";
+        });
+    }
 
     @Output() previousPage: EventEmitter<void> = new EventEmitter();
     @Output() nextPage: EventEmitter<void> = new EventEmitter();
@@ -26,6 +34,10 @@ export class AuthorsCommandComponent {
 
     setFilterTerm(event) {
         this.filterTerm = event.target.value;
+    }
+
+    ngOnDestroy() {
+        console.log("[Command] I'm an ex-component");
     }
 
 }

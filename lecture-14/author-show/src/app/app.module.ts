@@ -10,7 +10,7 @@ import { BasicModule } from '../components/basic.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
