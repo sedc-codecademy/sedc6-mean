@@ -1,0 +1,4 @@
+<button (click)="previous()">&lt;</button>
+<button (click)="next()">&gt;</button>
+<input type="text" placeholder="Enter name fragment" [value]="filterTerm" (change)="setFilterTerm($event)" />
+<button (click)="filter()">Filter</button>

@@ -1,0 +1,12 @@
+<div *ngIf="!!author">
+    <h1> {{ author.name }}</h1>
+    <div>{{ author.bookCount }} {{ getBookTerm(author) }}</div> 
+
+    <button (click)="loadBooks()">Load Books</button>
+
+    <ng-container *ngIf="!!author.books">
+        <book-list [books]="author.books"></book-list>
+    </ng-container>
+
+    <a [routerLink]="['/author/list']">Back to author list</a> 
+</div>
