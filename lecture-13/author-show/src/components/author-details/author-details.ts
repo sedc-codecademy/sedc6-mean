@@ -8,7 +8,7 @@ import { ActivatedRoute, ActivatedRouteSnapshot } from "@angular/router";
     templateUrl: "./author-details.html"
 })
 export class AuthorDetailsComponent implements OnInit {
-    // @Input() 
+    // @Input()
     authorId: number;
 
     author: Author;

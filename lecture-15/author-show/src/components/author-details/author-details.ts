@@ -13,6 +13,7 @@ export class AuthorDetailsComponent implements OnInit {
     author: Author;
 
     constructor(private service: AuthorService, private route: ActivatedRoute) {
+        console.log(service);
         console.log(route.snapshot);
         this.authorId = route.snapshot.params.id;
     }

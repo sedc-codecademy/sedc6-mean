@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
-import { ErrorComponent } from "./error/error";
+import { NotFoundErrorComponent } from "./not-found-error/not-found-error";
 
 @NgModule({
     declarations: [
-        ErrorComponent
+        NotFoundErrorComponent
     ],
     exports: [
-        ErrorComponent
+        NotFoundErrorComponent
     ]
 })
 export class BasicModule {
