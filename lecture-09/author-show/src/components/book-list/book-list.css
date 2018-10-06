@@ -1,0 +1,30 @@
+.id {
+    text-align: right;
+    width: 100px;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.header {
+    text-align: center;
+    border-bottom: solid 1px black;
+    width: 80%;
+    font-weight: bolder;
+}
+
+.name {
+    text-align: left;
+    width: 250px;
+    display: inline-block;
+}
+
+.count {
+    text-align: right;
+    width: 100px;
+    display: inline-block;
+}
+
+.item {
+    text-align: center;
+    width: 80%;
+}
