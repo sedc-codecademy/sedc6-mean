@@ -9,21 +9,21 @@
         ]
     },
     {
-        "content": "Who wrote Mozart's Third Symphony?",
-        "answers": [
-            "Carl Friedrich Abel",
-            "Thomas Arne",
-            "Mozart",
-            "Mozart's father"
-        ]
-    },
-    {
         "content": "What Egyptian ruler is commemorated by Cleopatra's Needle?",
         "answers": [
             "Cleopatra",
             "Tutankhamen",
             "Thothmes II",
             "Rameses I"
+        ]
+    },
+    {
+        "content": "Who wrote Mozart's Third Symphony?",
+        "answers": [
+            "Carl Friedrich Abel",
+            "Thomas Arne",
+            "Mozart",
+            "Mozart's father"
         ]
     },
     {
